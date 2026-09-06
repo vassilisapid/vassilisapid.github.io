@@ -1,0 +1,27 @@
+---
+layout: single
+---
+{% include base_path %}
+{% assign variant = page.profile_variant | default: site.profile_variant | default: "portrait" %}
+
+{% if variant == "landscape" %}
+{% assign profile_image = page.profile_image | default: site.author.avatar %}
+<div class="home-flex-profile home-flex-profile--landscape">
+  <div class="home-flex-profile__image">
+    <img src="{{ base_path }}/images/{{ profile_image }}" alt="{{ page.profile_name | default: site.author.name }}">
+  </div>
+  <div class="home-flex-profile__text">
+    <h1>{{ page.profile_name | default: site.author.name }}</h1>
+    {% if page.profile_subtitle %}<p class="home-flex-profile__subtitle">{{ page.profile_subtitle }}</p>{% endif %}
+    {% if page.profile_links %}
+    <p class="home-flex-profile__links">
+      {% for link in page.profile_links %}
+        <a href="{{ link.url }}">{{ link.label }}</a>{% unless forloop.last %} · {% endunless %}
+      {% endfor %}
+    </p>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+
+{{ content }}

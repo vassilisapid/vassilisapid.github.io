@@ -1,0 +1,176 @@
+<style>
+/* Left-side coloured bundle */
+.left-color-bundle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0.1px;
+  height: 100vh;
+  z-index: 999;
+  pointer-events: none;
+
+  background: #a34040;
+    /* linear-gradient(
+      to bottom,
+      #2f80ed 0%,
+      #2f80ed 16%,
+      #27ae60 16%,
+      #27ae60 32%,
+      #f2c94c 32%,
+      #f2c94c 48%,
+      #f2994a 48%,
+      #f2994a 64%,
+      #eb5757 64%,
+      #eb5757 80%,
+      #9b51e0 80%,
+      #9b51e0 100%
+    ); */
+}
+
+/* Avoid the strip overlapping the page edge */
+body {
+  padding-left: 16px;
+}
+
+/* Hide it on small screens */
+@media screen and (max-width: 768px) {
+  .left-color-bundle {
+    display: none;
+  }
+
+  body {
+    padding-left: 0;
+  }
+}
+
+/* Slightly soften it in dark mode */
+@media (prefers-color-scheme: dark) {
+  .left-color-bundle {
+    opacity: 0.55;
+  }
+}
+
+
+/* Minimal footer at the actual bottom of the page */
+.page__footer {
+  position: static !important;
+  margin-top: 3rem !important;
+  padding: 0.4rem 0 !important;
+  background: transparent !important;
+  border-top: none !important;
+}
+
+.page__footer footer {
+  position: static !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+}
+
+.page__footer-custom-minimal {
+  position: static !important;
+  display: block !important;
+  font-size: 0.72rem !important;
+  line-height: 0.8 !important;
+  text-align: center !important;
+  opacity: 0.6 !important;
+  white-space: nowrap !important;
+}
+
+.page__footer-custom-minimal a {
+  text-decoration: none !important;
+}
+
+.page__footer-custom-minimal a:hover {
+  text-decoration: underline !important;
+}
+
+/* Slightly smaller body text in the four main content pages */
+.page__content p,
+.page__content li {
+  font-size: 0.93em;
+  line-height: 1.55;
+}
+
+/* Automatic numbering of Research sections and subsections */
+.numbered-research {
+  counter-reset: research-section;
+}
+
+.numbered-research > h2 {
+  counter-reset: research-subsection;
+  counter-increment: research-section;
+}
+
+.numbered-research > h2::before {
+  content: counter(research-section) ". ";
+}
+
+.numbered-research > h3 {
+  counter-increment: research-subsection;
+}
+
+.numbered-research > h3::before {
+  content: counter(research-section) "." counter(research-subsection) " ";
+}
+
+/* Compact Research and Teaching lists */
+.research-items,
+.teaching-list {
+  margin-top: 0.6rem;
+  margin-bottom: 1.4rem;
+}
+
+.research-items li,
+.teaching-list li {
+  margin-bottom: 0.55rem;
+}
+
+.teaching-meta {
+  opacity: 0.75;
+}
+
+
+/* Publication list */
+
+.publication-list {
+  margin-top: 1.5rem;
+}
+
+.publication-item {
+  margin-bottom: 1.8rem;
+}
+
+.publication-title-line {
+  line-height: 1.35;
+  margin-bottom: 0.25rem;
+}
+
+.publication-number {
+  font-weight: 500;
+  margin-right: 0.3rem;
+  white-space: nowrap;
+}
+
+.publication-title {
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.publication-title:hover {
+  text-decoration: underline;
+}
+
+.publication-authors,
+.publication-venue {
+  line-height: 1.45;
+}
+
+.publication-scholar-link {
+  margin-bottom: 2rem;
+}
+
+
+</style>
+
+<div class="left-color-bundle"></div>
